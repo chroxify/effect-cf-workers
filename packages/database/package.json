@@ -1,27 +1,27 @@
 {
-  "name": "@repo/database",
-  "module": "src/index.ts",
-  "scripts": {
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
-  },
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/pg": "^8.15.4",
-    "drizzle-kit": "^0.31.4",
-    "tsx": "^4.20.3"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "@neondatabase/serverless": "^1.0.1",
-    "drizzle-orm": "^0.44.2",
-    "pg": "^8.16.3"
-  }
+	"name": "@acme/database",
+	"module": "src/index.ts",
+	"scripts": {
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:studio": "drizzle-kit studio"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/pg": "^8.15.4",
+		"drizzle-kit": "^0.31.4",
+		"tsx": "^4.20.3"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"@neondatabase/serverless": "^1.0.1",
+		"drizzle-orm": "^0.44.2",
+		"pg": "^8.16.3"
+	}
 }

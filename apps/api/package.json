@@ -1,29 +1,29 @@
 {
-  "name": "api",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
-    "test": "vitest",
-    "cf-typegen": "wrangler types"
-  },
-  "dependencies": {
-    "@effect/platform": "^0.87.12",
-    "@effect/schema": "^0.75.5",
-    "@neondatabase/serverless": "^1.0.1",
-    "@repo/auth": "workspace:*",
-    "@repo/database": "workspace:*",
-    "better-auth": "^1.2.12",
-    "drizzle-orm": "^0.44.2",
-    "effect": "^3.16.12",
-    "sqids": "^0.3.0"
-  },
-  "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.8.53",
-    "typescript": "^5.8.3",
-    "vitest": "~3.2.4",
-    "wrangler": "^4.24.3"
-  }
+	"name": "api",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"test": "vitest",
+		"cf-typegen": "wrangler types"
+	},
+	"dependencies": {
+		"@effect/platform": "^0.87.12",
+		"@effect/schema": "^0.75.5",
+		"@neondatabase/serverless": "^1.0.1",
+		"@acme/auth": "workspace:*",
+		"@acme/database": "workspace:*",
+		"better-auth": "^1.2.12",
+		"drizzle-orm": "^0.44.2",
+		"effect": "^3.16.12",
+		"sqids": "^0.3.0"
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-pool-workers": "^0.8.53",
+		"typescript": "^5.8.3",
+		"vitest": "~3.2.4",
+		"wrangler": "^4.24.3"
+	}
 }

@@ -1,23 +1,26 @@
 {
-  "name": "repo",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types",
-    "bump-deps": "find . -name package.json -not -path '*/node_modules/*' -execdir ncu -u \\;"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.1.1",
-    "npm-check-updates": "^18.0.1",
-    "turbo": "^2.5.4",
-    "typescript": "5.8.3"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "bun@1.2.18",
-  "workspaces": ["apps/*", "packages/*"]
+	"name": "acme",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"check-types": "turbo run check-types",
+		"bump-deps": "find . -name package.json -not -path '*/node_modules/*' -execdir ncu -u \\;"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.1.1",
+		"npm-check-updates": "^18.0.1",
+		"turbo": "^2.5.4",
+		"typescript": "5.8.3"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "bun@1.2.18",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	]
 }
