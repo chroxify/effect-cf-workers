@@ -14,7 +14,10 @@ export default {
 
 				const url = new URL(request.url);
 				if (url.pathname.startsWith("/v1/auth")) {
-					return authServer.handler(request);
+					return authServer.handler(request).then((response) => {
+						response.headers.set("Access-Control-Allow-Origin", "*");
+						return response;
+					});
 				}
 
 				const { handler, dispose } = HttpApiBuilder.toWebHandler(
@@ -27,6 +30,7 @@ export default {
 						middleware: (app) =>
 							app
 								.pipe(HttpMiddleware.logger)
+								.pipe(HttpMiddleware.cors())
 								.pipe(Effect.provide(Logger.pretty)),
 					},
 				);
