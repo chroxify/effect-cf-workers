@@ -1,12 +1,15 @@
+import * as Auth from '@/services/Auth';
 import { HttpApiMiddleware, HttpServerRequest } from '@effect/platform';
 import { Context, Effect, Layer } from 'effect';
 import { Unauthorized } from '@/schema/errors';
-import { AuthService } from '@/services/AuthService';
 import type { Session, User } from '@/schema/models';
 
 export class AuthContext extends Context.Tag('AuthContext')<
   AuthContext,
-  { user: User.Model; session: Session.Model }
+  {
+    readonly user: User.Model;
+    readonly session: Session.Model;
+  }
 >() {}
 
 export class Authorization extends HttpApiMiddleware.Tag<Authorization>()('Authorization', {
@@ -17,7 +20,7 @@ export class Authorization extends HttpApiMiddleware.Tag<Authorization>()('Autho
 export const AuthorizationLive = Layer.effect(
   Authorization,
   Effect.gen(function* () {
-    const authService = yield* AuthService;
+    const authService = yield* Auth.Auth;
 
     return Effect.gen(function* () {
       const request = yield* HttpServerRequest.HttpServerRequest;

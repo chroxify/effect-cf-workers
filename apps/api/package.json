@@ -12,11 +12,13 @@
   "dependencies": {
     "@effect/platform": "^0.84.3",
     "@effect/schema": "^0.75.5",
-    "@repo/database": "workspace:*",
     "@neondatabase/serverless": "^1.0.0",
+    "@repo/auth": "workspace:*",
+    "@repo/database": "workspace:*",
     "better-auth": "^1.2.8",
     "drizzle-orm": "^0.44.1",
-    "effect": "^3.16.2"
+    "effect": "^3.16.2",
+    "sqids": "^0.3.0"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.8.19",

@@ -1,4 +1,5 @@
 import { boolean, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { sql } from 'drizzle-orm';
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -7,7 +8,12 @@ export const user = pgTable('user', {
   emailVerified: boolean('email_verified').notNull(),
   image: text('image'),
   createdAt: timestamp('created_at').notNull(),
-  updatedAt: timestamp('updated_at').notNull(),
+  updatedAt: timestamp('updated_at', {
+    precision: 3,
+  })
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => sql`CURRENT_TIMESTAMP`),
 });
 
 export const session = pgTable('session', {
@@ -15,7 +21,12 @@ export const session = pgTable('session', {
   expiresAt: timestamp('expires_at').notNull(),
   token: text('token').notNull().unique(),
   createdAt: timestamp('created_at').notNull(),
-  updatedAt: timestamp('updated_at').notNull(),
+  updatedAt: timestamp('updated_at', {
+    precision: 3,
+  })
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => sql`CURRENT_TIMESTAMP`),
   ipAddress: text('ip_address'),
   userAgent: text('user_agent'),
   userId: text('user_id')
@@ -38,7 +49,12 @@ export const account = pgTable('account', {
   scope: text('scope'),
   password: text('password'),
   createdAt: timestamp('created_at').notNull(),
-  updatedAt: timestamp('updated_at').notNull(),
+  updatedAt: timestamp('updated_at', {
+    precision: 3,
+  })
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => sql`CURRENT_TIMESTAMP`),
 });
 
 export const verification = pgTable('verification', {

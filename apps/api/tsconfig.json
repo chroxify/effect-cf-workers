@@ -9,6 +9,8 @@
     /* Specify what JSX code is generated. */
     "jsx": "react-jsx",
 
+    "noErrorTruncation": true,
+
     /* Specify what module code is generated. */
     "module": "es2022",
     /* Specify how TypeScript looks up a file from a given module specifier. */

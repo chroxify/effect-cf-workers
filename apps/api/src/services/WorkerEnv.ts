@@ -6,10 +6,12 @@ export interface WorkerBindings {
   BETTER_AUTH_SECRET: string;
   DATABASE_URL: string;
   ENVIRONMENT: string;
-  // Add more bindings here as needed
+  OPENAI_API_KEY: string;
+  SQIDS_ALPHABET: string;
+  AI: Ai;
 }
 
-export class WorkerEnvService extends Effect.Service<WorkerEnvService>()('WorkerEnvService', {
+export class WorkerEnv extends Effect.Service<WorkerEnv>()('WorkerEnv', {
   effect: Effect.fn(function* (bindings: WorkerBindings) {
     yield* Effect.try({
       try: () => bindings,
