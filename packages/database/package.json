@@ -12,16 +12,16 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/pg": "^8.15.2",
-    "drizzle-kit": "^0.31.1",
-    "tsx": "^4.19.4"
+    "@types/pg": "^8.15.4",
+    "drizzle-kit": "^0.31.4",
+    "tsx": "^4.20.3"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",
-    "drizzle-orm": "^0.44.1",
-    "pg": "^8.16.0"
+    "drizzle-orm": "^0.44.2",
+    "pg": "^8.16.3"
   }
 }

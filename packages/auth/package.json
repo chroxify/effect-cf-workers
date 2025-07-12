@@ -7,12 +7,12 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
-    "tsx": "^4.19.4"
+    "tsx": "^4.20.3"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "better-auth": "1.2.9-beta.9"
+    "better-auth": "1.2.12"
   }
 }
