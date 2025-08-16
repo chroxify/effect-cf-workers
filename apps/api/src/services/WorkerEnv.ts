@@ -8,6 +8,7 @@ export interface WorkerBindings {
   ENVIRONMENT: string;
   OPENAI_API_KEY: string;
   SQIDS_ALPHABET: string;
+  GATEWAY_API_KEY: string;
   AI: Ai;
 }
 
