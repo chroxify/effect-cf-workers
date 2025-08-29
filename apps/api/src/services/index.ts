@@ -1,5 +1,6 @@
 import { Layer } from 'effect';
-import { Database } from './Database';
 import { Auth } from './Auth';
+import { Database } from './Database';
+import { Gateway } from './Gateway';
 
-export const ServiceLayerLive = Layer.mergeAll(Auth.Live, Database.Live);
+export const ServiceLayerLive = Layer.mergeAll(Auth.Live, Database.Live, Gateway.Live);
