@@ -1,7 +1,7 @@
-import * as schema from './schema';
 import { neon } from '@neondatabase/serverless';
 import { drizzle as neonDrizzle } from 'drizzle-orm/neon-http';
 import { drizzle as pgDrizzle } from 'drizzle-orm/node-postgres';
+import * as schema from './schema';
 
 export { drizzle as pgDrizzle } from 'drizzle-orm/node-postgres';
 

@@ -1,6 +1,5 @@
+import { HttpApiEndpoint, HttpApiGroup } from '@effect/platform';
 import { Schema } from 'effect';
-import { HttpApiGroup } from '@effect/platform';
-import { HttpApiEndpoint } from '@effect/platform';
 import { Authorization } from '@/middleware/auth';
 import { Session, User } from '@/schema/models';
 

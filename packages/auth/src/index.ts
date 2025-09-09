@@ -1,7 +1,6 @@
 import { betterAuth } from 'better-auth';
-import { drizzleAdapter, type DB } from 'better-auth/adapters/drizzle';
-import { bearer, openAPI } from 'better-auth/plugins';
-import { magicLink } from 'better-auth/plugins';
+import { type DB, drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { bearer, magicLink, openAPI } from 'better-auth/plugins';
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const createBetterAuth = ({ db, env, schema }: { db: DB; env: any; schema: Record<string, any> }) => {
