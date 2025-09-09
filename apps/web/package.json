@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@acme/ui": "workspace:*",
+    "better-auth": "^1.3.9",
     "next": "15.5.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
