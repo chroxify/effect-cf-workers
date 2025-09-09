@@ -5,12 +5,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "biome lint .",
-    "format": "biome format .",
-    "format-and-lint": "biome check .",
-    "format-and-lint:fix": "biome check . --write",
+    "format": "biome check .",
+    "format:fix": "biome check . --write",
     "check-types": "turbo run check-types",
     "bump-deps": "find . -name package.json -not -path '*/node_modules/*' -execdir ncu -u \\;",
-    "prepare": "husky",
     "rename": "node -e \"const r=process.argv[1]; const u=r.toUpperCase(); const t=r.charAt(0).toUpperCase()+r.slice(1).toLowerCase(); const fs=require('fs'); const path=require('path'); function walk(dir){const files=fs.readdirSync(dir); files.forEach(f=>{const p=path.join(dir,f); const s=fs.statSync(p); if(s.isDirectory()&&!p.includes('node_modules')&&!p.includes('.git')&&!p.includes('.turbo')){walk(p)}else if(s.isFile()&&!p.includes('bun.lock')){try{let c=fs.readFileSync(p,'utf8'); const o=c; c=c.replace(/\\bacme\\b/g,r).replace(/\\bAcme/g,t).replace(/\\bACME\\b/g,u); if(c!==o){fs.writeFileSync(p,c); console.log('Updated: '+p)}}catch(e){}}})} walk('.'); console.log('Done! Run bun install to update dependencies.');\""
   },
   "devDependencies": {
@@ -31,8 +29,8 @@
     "packages/*"
   ],
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "pnpm format-and-lint:fix"
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "bun format:fix"
     ]
   }
 }
