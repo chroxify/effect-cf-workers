@@ -13,6 +13,6 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "better-auth": "1.3.9"
+    "better-auth": "^1.3.9"
   }
 }
