@@ -6,6 +6,7 @@
     "dev": "turbo run dev",
     "lint": "biome lint .",
     "format": "biome check .",
+    "prepare": "husky install",
     "format:fix": "biome check . --write",
     "check-types": "turbo run check-types",
     "bump-deps": "find . -name package.json -not -path '*/node_modules/*' -execdir ncu -u \\;",
