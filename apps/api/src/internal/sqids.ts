@@ -1,7 +1,7 @@
 import { HttpApiSchema } from '@effect/platform';
 import { Effect, Schema } from 'effect';
 import Sqids from 'sqids';
-import { WorkerEnv } from '@/services/WorkerEnv';
+import { WorkerEnv } from '@/services/core/WorkerEnv';
 
 export class SqidsDecodingError extends Schema.TaggedError<SqidsDecodingError>('SqidsDecodingError')(
   'SqidsDecodingError',

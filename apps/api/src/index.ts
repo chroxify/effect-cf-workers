@@ -1,8 +1,8 @@
 import { HttpApiBuilder, HttpMiddleware, HttpServer } from '@effect/platform';
 import { Effect, Layer, Logger } from 'effect';
-import * as Auth from '@/services/Auth';
+import * as Auth from '@/services/core/Auth';
 import { AcmeApiLive, ScalarLive } from './modules/v1';
-import { type WorkerBindings, WorkerEnv } from './services/WorkerEnv';
+import { type WorkerBindings, WorkerEnv } from './services/core/WorkerEnv';
 
 // Cloudflare Worker/Fetch handler
 export default {

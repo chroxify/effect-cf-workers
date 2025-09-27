@@ -1,8 +1,8 @@
 import { HttpApiMiddleware, HttpServerRequest } from '@effect/platform';
 import { Context, Effect, Layer } from 'effect';
+import type { Session, User } from '@/schema/auth';
 import { Unauthorized } from '@/schema/errors';
-import type { Session, User } from '@/schema/models';
-import * as Auth from '@/services/Auth';
+import * as Auth from '@/services/core/Auth';
 
 export class AuthContext extends Context.Tag('AuthContext')<
   AuthContext,

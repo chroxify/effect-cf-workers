@@ -1,6 +1,5 @@
 import { Effect } from 'effect';
 
-// Base type for worker bindings
 export interface WorkerBindings {
   BETTER_AUTH_URL: string;
   BETTER_AUTH_SECRET: string;

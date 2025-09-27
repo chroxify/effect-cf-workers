@@ -1,7 +1,7 @@
 import { createOpenAI } from '@ai-sdk/openai';
 import type { LanguageModel } from 'ai';
 import { Context, Effect, Layer } from 'effect';
-import { WorkerEnv } from './WorkerEnv';
+import { WorkerEnv } from '../core/WorkerEnv';
 
 export class Gateway extends Context.Tag('Gateway')<Gateway, LanguageModel>() {
   static readonly Live = Layer.effect(
