@@ -1,13 +1,14 @@
 import { HttpApiBuilder, HttpMiddleware, HttpServer } from '@effect/platform';
 import { Effect, Layer, Logger } from 'effect';
 import * as Auth from '@/services/core/Auth';
-import { AcmeApiLive, ScalarLive } from './modules/v1';
+import { AcmeApiLive, ScalarLive, TelemetryLive } from './modules/v1';
 import { type WorkerBindings, WorkerEnv } from './services/core/WorkerEnv';
 
 // Cloudflare Worker/Fetch handler
 export default {
   async fetch(request: Request, env: WorkerBindings, ctx: ExecutionContext) {
     const workerEnv = WorkerEnv.Default(env);
+    const runtimeLayer = Layer.mergeAll(workerEnv, Logger.structured);
     return Effect.runPromise(
       Effect.gen(function* () {
         const authServer = yield* Auth.Auth;
@@ -22,17 +23,18 @@ export default {
 
         const { handler, dispose } = HttpApiBuilder.toWebHandler(
           Layer.mergeAll(
-            AcmeApiLive.pipe(Layer.provide(workerEnv)),
-            ScalarLive.pipe(Layer.provide(workerEnv)),
+            AcmeApiLive.pipe(Layer.provide(runtimeLayer)),
+            ScalarLive.pipe(Layer.provide(runtimeLayer)),
+            TelemetryLive.pipe(Layer.provide(runtimeLayer)),
             HttpServer.layerContext
           ),
           {
             middleware: (app) =>
-              app.pipe(HttpMiddleware.logger).pipe(HttpMiddleware.cors()).pipe(Effect.provide(Logger.pretty)),
+              app.pipe(HttpMiddleware.logger, HttpMiddleware.cors(), Effect.provide(Logger.structured)),
           }
         );
         return handler(request).finally(() => ctx.waitUntil(dispose()));
-      }).pipe(Effect.provide(Auth.Auth.Live), Effect.provide(workerEnv))
+      }).pipe(Effect.provide(Auth.Auth.Live), Effect.provide(runtimeLayer))
     );
   },
 };

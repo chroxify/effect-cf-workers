@@ -1,6 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { type DB, drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { bearer, magicLink, openAPI } from 'better-auth/plugins';
+import { bearer, openAPI } from 'better-auth/plugins';
 
 // biome-ignore lint/suspicious/noExplicitAny: environment variables
 export const createBetterAuth = ({ db, env, schema }: { db: DB; env: any; schema: Record<string, any> }) => {
@@ -21,22 +21,11 @@ export function createBetterAuthConfig(env: any) {
     },
     plugins: [
       bearer(),
-      magicLink({
-        sendMagicLink: async ({ email, token, url }) => {
-          // biome-ignore lint/suspicious/noConsole: debugging
-          console.log('sendMagicLink', email, token, url);
-        },
-      }),
       openAPI({
         path: '/reference',
         disableDefaultReference: env.ENVIRONMENT !== 'development',
       }),
     ],
-    socialProviders: {
-      github: {
-        clientId: env.GITHUB_CLIENT_ID,
-        clientSecret: env.GITHUB_CLIENT_SECRET,
-      },
-    },
+    socialProviders: {},
   };
 }

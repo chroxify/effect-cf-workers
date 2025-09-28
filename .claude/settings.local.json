@@ -1,6 +1,17 @@
 {
   "permissions": {
-    "allow": ["Bash(bun run:*)", "Bash(bun add:*)", "Bash(pkill:*)"],
+    "allow": [
+      "Bash(bun run:*)",
+      "Bash(bun add:*)",
+      "Bash(pkill:*)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "mcp__effect-docs__effect_doc_search",
+      "Bash(rm:*)",
+      "Bash(bun remove:*)"
+    ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": ["effect-docs"]
 }

@@ -8,6 +8,7 @@ export interface WorkerBindings {
   OPENAI_API_KEY: string;
   SQIDS_ALPHABET: string;
   GATEWAY_API_KEY: string;
+  OTEL_EXPORTER_OTLP_ENDPOINT: string;
   AI: Ai;
 }
 
