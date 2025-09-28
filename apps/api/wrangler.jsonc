@@ -15,7 +15,15 @@
 
   "ai": {
     "binding": "AI"
-  }
+  },
+
+  "hyperdrive": [
+    {
+      "id": "<your-hyperdrive-id-here>",
+      "binding": "HYPERDRIVE",
+      "localConnectionString": "postgres://user:password@localhost:5432/postgres"
+    }
+  ]
 
   /**
    * Smart Placement

@@ -4,7 +4,7 @@ import { WorkerEnv } from './WorkerEnv';
 
 const make = Effect.gen(function* () {
   const env = yield* WorkerEnv;
-  return createDrizzle(env.DATABASE_URL, env.ENVIRONMENT === 'development' ? 'pg' : 'neon');
+  return createDrizzle(env.HYPERDRIVE.connectionString);
 });
 
 export class Database extends Context.Tag('Database')<Database, Effect.Effect.Success<typeof make>>() {

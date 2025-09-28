@@ -1,17 +1,16 @@
-import { neon } from '@neondatabase/serverless';
-import { drizzle as neonDrizzle } from 'drizzle-orm/neon-http';
-import { drizzle as pgDrizzle } from 'drizzle-orm/node-postgres';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 import * as schema from './schema';
-
-export { drizzle as pgDrizzle } from 'drizzle-orm/node-postgres';
 
 export const tables = {
   ...schema,
 };
 
-export const createDrizzle = (url: string, type: 'pg' | 'neon') => {
-  if (type === 'pg') {
-    return pgDrizzle(url, { schema: tables });
-  }
-  return neonDrizzle(neon(url), { schema: tables });
+export const createDrizzle = (url: string) => {
+  const client = postgres(url, {
+    max: 5,
+    fetch_types: false,
+  });
+
+  return drizzle(client, { schema: tables });
 };

@@ -20,8 +20,8 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.1",
     "drizzle-orm": "^0.44.5",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7"
   }
 }

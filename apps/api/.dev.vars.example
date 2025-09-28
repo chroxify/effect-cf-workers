@@ -1,8 +1,13 @@
 # Used by Wrangler in local development
 # In production, these should be set as Cloudflare Worker Secrets.
 
+# Auth
 BETTER_AUTH_URL=http://localhost:8787
 BETTER_AUTH_SECRET=example_auth_secret_32_characters_long
-DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/postgres
+
+# Metrics
 ENVIRONMENT=development
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+
+# Database
 SQIDS_ALPHABET=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789

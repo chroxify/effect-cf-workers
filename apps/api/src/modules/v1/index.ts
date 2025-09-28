@@ -30,7 +30,7 @@ export const TelemetryLive = Layer.unwrapEffect(
   Effect.gen(function* () {
     const env = yield* WorkerEnv;
     if (!env.OTEL_EXPORTER_OTLP_ENDPOINT) {
-      yield* Effect.logWarning('OTEL_EXPORTER_OTLP_ENDPOINT secret is not set');
+      yield* Effect.logError('OTEL_EXPORTER_OTLP_ENDPOINT secret is not set');
       return Layer.empty;
     }
     return Otlp.layer({
